@@ -1,0 +1,4 @@
+Django==3.2.12          # The Django web framework
+djangorestframework==3.12.4  # Django REST framework for building APIs
+django-cors-headers==3.7.0  # Handling CORS headers for your Django project
+gunicorn==21.2.0
