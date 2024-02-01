@@ -28,8 +28,6 @@ This project for user management, built with Django (backend) and JavaScript (fr
 
     ```bash
     docker-compose down
-    docker-compose run web python manage.py makemigrations
-    docker-compose run web python manage.py migrate
     docker-compose up --build
     ```
 
