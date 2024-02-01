@@ -1,6 +1,6 @@
 # User Management SPA
 
-This project is a Single Page Application (SPA) for user management, built with Django (backend) and JavaScript (frontend).
+This project for user management, built with Django (backend) and JavaScript (frontend).
 
 ## Technologies Used
 
