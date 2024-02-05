@@ -22,4 +22,5 @@ jobs:
 
     - name: Run tests
       run: |
-        python services/manage.py test
+        cd services
+        python manage.py test
