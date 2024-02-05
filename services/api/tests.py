@@ -21,6 +21,7 @@ class UserAPITest(APITestCase):
     def setUp(self):
         self.data = {"username": "testuser","email": "user123@example.com","password": "ddaasa","first_name": "John","last_name": "Doe"}
         self.user = get_user_model().objects.create_user(**self.data)
+        # self.token = None
 
     def test_create_user(self):
         api_url = reverse("register")
@@ -32,9 +33,14 @@ class UserAPITest(APITestCase):
         token_url = reverse("token_obtain_pair")
         payload_data = {"username": self.data['username'], "password": self.data['password']}
         res = self.client.post(token_url, payload_data)
+        json_res = json.loads(res.content.decode('utf-8'))
         self.assertEqual(res.status_code, 200)
-        self.assertEqual(list(json.loads(res.content.decode('utf-8')).keys()), ['token'])
+        self.assertEqual(list(json_res.keys()), ['token'])
+        self.token = json_res['token']
 
-    #
-    # def test_user_logout(self):
-    #     pass
+    def test_user_logout(self):
+        self.test_get_token()
+        logout_api = reverse('api-logout')
+        headers = {'Authorization': f'Token {self.token}'}
+        res = self.client.post(logout_api, headers=headers)
+        self.assertEqual(res.status_code, 200)
