@@ -28,3 +28,4 @@ class UserSerializer(serializers.ModelSerializer):
         if not value:
             raise serializers.ValidationError('Password should not blank')
         return value
+
