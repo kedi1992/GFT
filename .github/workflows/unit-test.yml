@@ -19,7 +19,9 @@ jobs:
       run: cd services
 
     - name: Build and run Docker Compose
-      run: docker-compose up -d
+      run: |
+         dir
+         docker-compose up -d
 
     - name: Install dependencies
       run: |
