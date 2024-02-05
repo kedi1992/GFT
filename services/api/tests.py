@@ -36,9 +36,7 @@ class UserAPITest(APITestCase):
         json_res = json.loads(res.content.decode('utf-8'))
         self.assertEqual(res.status_code, 200)
         self.assertEqual(list(json_res.keys()), ['token'])
-        print("json_res :: ", json_res)
-        self.token = json_res['token']  # Corrected assignment line
-        print("self.token :: ", self.token)
+        self.token = json_res['token']
 
     def test_user_logout(self):
         self.test_get_token()
