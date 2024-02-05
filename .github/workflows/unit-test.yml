@@ -6,10 +6,6 @@ jobs:
   service-unit-test:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: service
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -21,11 +17,12 @@ jobs:
 
     - name: Build and run Docker Compose
       run: |
-         dir
+         cd services
          docker-compose up -d
 
     - name: Install dependencies
       run: |
+        cd services
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
