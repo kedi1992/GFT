@@ -3,8 +3,12 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  test:
+  service-unit-test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: path/to/your/project
 
     steps:
     - name: Checkout code
